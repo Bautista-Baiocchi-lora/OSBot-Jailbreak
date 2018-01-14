@@ -54,7 +54,7 @@ public class Agent {
             if (nextEntry.getName().endsWith(".class")) {
                 if(byteArrayOutputStream.toByteArray() != null) {
                     Logger.log("Populating: " + nextEntry.getName());
-                    scripts.put(nextEntry.getName(), byteArrayOutputStream.toByteArray());
+                    scripts.put(nextEntry.getName().replace(".class", ""), byteArrayOutputStream.toByteArray());
                 }
             }
         }
