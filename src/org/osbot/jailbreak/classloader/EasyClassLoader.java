@@ -21,6 +21,7 @@ import java.util.Map;
  * Created by Ethan on 1/14/2018.
  */
 public class EasyClassLoader extends ClassLoader {
+
     private Map<String, Class<?>> classMap = new HashMap<>();
     private Map<String, byte[]> classCache;
 
@@ -30,7 +31,7 @@ public class EasyClassLoader extends ClassLoader {
 
     public final void defineClasses() {
         try {
-            Logger.log("Bout to define: " + classCache.size());
+            Logger.log("Defining: " + classCache.size()+" classes.");
             for (Map.Entry<String, byte[]> entry : classCache.entrySet()) {
                 if(entry.getValue() != null) {
                     Logger.log("Define: " + entry.getKey() + " || Length: " + entry.getValue().length);
@@ -55,7 +56,7 @@ public class EasyClassLoader extends ClassLoader {
         try {
             code = new CodeSource(new URL("http://127.0.0.1"), (Certificate[]) null);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Logger.log(e.getLocalizedMessage());
         }
         return new ProtectionDomain(code, getPermissions());
     }
