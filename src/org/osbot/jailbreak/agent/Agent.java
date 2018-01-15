@@ -9,8 +9,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
 import java.net.URL;
+import java.security.ProtectionDomain;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.jar.JarInputStream;
@@ -22,10 +24,11 @@ import java.util.zip.ZipEntry;
 
 public class Agent {
 	private static Agent instance;
-	public static Map<String, byte[]> scripts = new HashMap<>();
+	private Map<String, byte[]> scripts = new HashMap<>();
 
 	public static void agentmain(String args, Instrumentation instrumentation) {
 		new MainFrame(instrumentation);
+		instance = new Agent();
 		Logger.log("[Agent] Successfully loaded into the JVM");
 		try {
 			downloadScript(Constants.JAR_URL);
@@ -53,7 +56,7 @@ public class Agent {
 			if (nextEntry.getName().endsWith(".class")) {
 				if (byteArrayOutputStream.toByteArray() != null) {
 					Logger.log("Populating: " + nextEntry.getName());
-					scripts.put(nextEntry.getName().replace(".class", ""), byteArrayOutputStream.toByteArray());
+					instance.scripts.put(nextEntry.getName().replace(".class", ""), byteArrayOutputStream.toByteArray());
 				}
 			}
 		}
@@ -76,4 +79,5 @@ public class Agent {
 		}
 		return null;
 	}
+
 }

@@ -45,8 +45,13 @@ public class EasyClassLoader extends ClassLoader {
         }
     }
     private final Class<?> defineClass(String name, byte[] bytes) {
-        if (super.findLoadedClass(name) != null) {
-            return findLoadedClass(name);
+        try {
+            if (ClassLoader.getSystemClassLoader().loadClass(name) != null) {
+                ClassLoader.getSystemClassLoader().loadClass(name);
+            }
+        }catch (Exception e) {
+            return defineClass(name.replace('/', '.'), bytes, 0, bytes.length,
+                    getDomain());
         }
         return defineClass(name.replace('/', '.'), bytes, 0, bytes.length,
                 getDomain());
