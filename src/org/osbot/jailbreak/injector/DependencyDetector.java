@@ -5,6 +5,7 @@ package org.osbot.jailbreak.injector;
  */
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.tree.ClassNode;
+import org.osbot.jailbreak.ui.logger.Logger;
 
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -68,8 +69,7 @@ public class DependencyDetector {
                             ClassLoader.getSystemResourceAsStream(path)
                     ).accept(cn, ClassReader.SKIP_CODE);
                 } catch (IOException e) {
-                    throw new RuntimeException(
-                            "could not read class " + importName);
+                        Logger.log("We broke on: "+importName);
                 }
                 imp = createNode(cn);
                 nodes.put(importName, imp);
@@ -108,11 +108,11 @@ public class DependencyDetector {
         ArrayDeque<Node> dependencyQueue = new ArrayDeque<Node>();
         for (String className : classNames) {
             Node node = nodes.get(className.replace('.', '/'));
-            dependencyQueue.add(node);
             if (node == null) {
                 throw new RuntimeException(
                         "Class " + className + " was not registered");
             }
+            dependencyQueue.add(node);
         }
         HashMap<String, Node> dependencyMap = new HashMap<String, Node>();
         while (!dependencyQueue.isEmpty()) {

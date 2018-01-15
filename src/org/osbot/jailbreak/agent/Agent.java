@@ -1,19 +1,20 @@
 package org.osbot.jailbreak.agent;
 
+
+import jdk.internal.org.objectweb.asm.ClassReader;
+import jdk.internal.org.objectweb.asm.tree.ClassNode;
 import org.osbot.jailbreak.data.Constants;
 import org.osbot.jailbreak.injector.DependencyDetector;
 import org.osbot.jailbreak.ui.MainFrame;
 import org.osbot.jailbreak.ui.logger.Logger;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
+import java.io.*;
 
 import java.lang.instrument.Instrumentation;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.jar.JarInputStream;
 import java.util.zip.ZipEntry;
 
@@ -22,17 +23,18 @@ import java.util.zip.ZipEntry;
  */
 
 public class Agent {
-	private static LinkedHashMap<String, byte[]> scripts = new LinkedHashMap<>();
+	public static LinkedHashMap<String, byte[]> scripts = new LinkedHashMap<>();
+	public static LinkedHashMap<String, ClassNode> classNodes = new LinkedHashMap<>();
 	private static final DependencyDetector dependencies = new DependencyDetector();
 	public static void agentmain(String args, Instrumentation instrumentation) {
 		new MainFrame(instrumentation);
 		Logger.log("[Agent] Successfully loaded into the JVM");
 		try {
 			downloadScript(Constants.JAR_URL);
-			loadIntoClassLoader(ClassLoader.getSystemClassLoader());
 		} catch (Exception e) {
 			Logger.log(e.getLocalizedMessage());
 		}
+		loadIntoClassLoader(ClassLoader.getSystemClassLoader());
 	}
 
 	private static void downloadScript(String link) throws IOException {
@@ -40,7 +42,6 @@ public class Agent {
 		final byte[] bytes = getByteArray(link);
 		final byte[] array = new byte[1024];
 		final JarInputStream jarInputStream = new JarInputStream(new ByteArrayInputStream(bytes));
-
 		ZipEntry nextEntry;
 		while ((nextEntry = jarInputStream.getNextEntry()) != null) {
 			final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -52,12 +53,28 @@ public class Agent {
 			}
 			if (nextEntry.getName().endsWith(".class")) {
 				if (byteArrayOutputStream.toByteArray() != null) {
-					//Logger.log("Populating: " + nextEntry.getName());
-					scripts.put(nextEntry.getName(), byteArrayOutputStream.toByteArray());
+					Logger.log("Populating: " + nextEntry.getName());
+					scripts.put(nextEntry.getName().replace(".class", ""), byteArrayOutputStream.toByteArray());
+					loadClass(jarInputStream2);
 				}
 			}
 		}
+		for(Map.Entry<String, ClassNode> entry : classNodes.entrySet()) {
+			Logger.log("Adding node: "+entry.getKey());
+			dependencies.add(entry.getValue());
+		}
 		Logger.log("Download finished.");
+	}
+
+	private static void loadClass(InputStream inputStream) throws IOException {
+		try {
+			ClassReader cr = new ClassReader(inputStream);
+			ClassNode cn = new ClassNode();
+			cr.accept(cn, ClassReader.EXPAND_FRAMES);
+			classNodes.put(cn.name, cn);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static byte[] getByteArray(String link) {
@@ -76,7 +93,7 @@ public class Agent {
 		}
 		return null;
 	}
-	private static void loadIntoClassLoader(ClassLoader loader) {
+	public static void loadIntoClassLoader(ClassLoader loader) {
 		String[] classNames = scripts.keySet().toArray(new String[0]);
 		final String[] classNamesToLoad =
 				dependencies.getClassesToLoad(classNames);
@@ -118,7 +135,7 @@ public class Agent {
 	private static byte[] getBytecode(String binaryName) {
 		byte[] bytecode = scripts.get(binaryName);
 		if (bytecode == null) {
-				Logger.log("bytecode null?");
+			System.out.println("bytes null");
 		}
 		return bytecode;
 	}
@@ -127,6 +144,7 @@ public class Agent {
 			try {
 				m.setAccessible(false);
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
