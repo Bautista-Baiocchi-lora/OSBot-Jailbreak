@@ -16,24 +16,8 @@ public class Agent  {
 		new MainFrame(instrumentation);
 		Logger.log("[Agent] Successfully loaded into the JVM");
 		try {
-			JarLoader sc = new JarLoader(new URL(Constants.JAR_URL));
-			for (String entry : sc.entries().keySet().toArray(new String[sc.entries().keySet().size()])) {
-				try {
-					if(entry.contains("ExRuneCraftGUI")) {
-						Class<?> clazz = sc.loadClass(entry);
-						Logger.log("We loaded: " + clazz.getName());
-					}
-				} catch (Exception e) {
-					// ignored
-				}
-			}
-			ClassLoader c = ClassLoader.getSystemClassLoader();
-			Class<?> clazz = c.loadClass("scripts.exrunecrafter.gui.ExRuneCraftGUI");
-			if(clazz != null) {
-				Logger.log("HEYYY");
-			} else {
-				Logger.log("No go bro");
-			}
+		JarLoader jr = new JarLoader(new URL(Constants.JAR_URL));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

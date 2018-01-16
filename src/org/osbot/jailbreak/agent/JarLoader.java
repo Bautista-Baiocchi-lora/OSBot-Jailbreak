@@ -3,7 +3,6 @@ package org.osbot.jailbreak.agent;
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.tree.ClassNode;
-
 import java.io.ByteArrayOutputStream;
 import java.net.URL;
 import java.util.HashMap;
@@ -18,7 +17,6 @@ import java.util.jar.JarInputStream;
 public class JarLoader extends ClassLoader {
     private Map<String, byte[]> entryMap;
     public Map<String, Class<?>> classCache;
-
     private URL url;
 
     public JarLoader(URL url) {
@@ -85,4 +83,5 @@ public class JarLoader extends ClassLoader {
         }
         return getSystemClassLoader().loadClass(name);
     }
+
 }
