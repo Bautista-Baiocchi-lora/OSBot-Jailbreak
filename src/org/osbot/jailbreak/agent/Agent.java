@@ -19,14 +19,23 @@ public class Agent  {
 			JarLoader sc = new JarLoader(new URL(Constants.JAR_URL));
 			for (String entry : sc.entries().keySet().toArray(new String[sc.entries().keySet().size()])) {
 				try {
-					Class<?> clazz = sc.loadClass(entry);
-					Logger.log("We loaded: "+clazz.getName());
+					if(entry.contains("ExRuneCraftGUI")) {
+						Class<?> clazz = sc.loadClass(entry);
+						Logger.log("We loaded: " + clazz.getName());
+					}
 				} catch (Exception e) {
 					// ignored
 				}
 			}
+			ClassLoader c = ClassLoader.getSystemClassLoader();
+			Class<?> clazz = c.loadClass("scripts.exrunecrafter.gui.ExRuneCraftGUI");
+			if(clazz != null) {
+				Logger.log("HEYYY");
+			} else {
+				Logger.log("No go bro");
+			}
 		} catch (Exception e) {
-			Logger.log(e.getLocalizedMessage());
+			e.printStackTrace();
 		}
 	}
 
