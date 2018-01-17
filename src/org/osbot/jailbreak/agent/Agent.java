@@ -25,18 +25,27 @@ public class Agent {
 		for (String jarUrl : Constants.JAR_URLS) {
 			try {
 				File jarFile = downloadJarFile(jarUrl);
+				Logger.log("Downloaded");
 				instrumentation.appendToSystemClassLoaderSearch(new JarFile(jarFile));
-				Logger.log("Injected script");
-				jarFile.delete();
+				Class<?> c = ClassLoader.getSystemClassLoader().loadClass("org.osbot.maestro.script.MaestroSlayer");
+				if (c != null) {
+					Logger.log("Script injected.");
+					jarFile.delete();
+				} else {
+					Logger.logException("Failed to inject script.");
+					jarFile.delete();
+				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				Logger.log(e.getLocalizedMessage());
+			} catch (ClassNotFoundException e) {
+				Logger.log(e.getLocalizedMessage());
 			}
 		}
 	}
 
 
 	private static File downloadJarFile(String url) throws IOException {
-		File tempFile = new File(System.getProperty("user.home") + File.separator + "test.jar");
+		File tempFile = File.createTempFile("o", ".jar");
 		tempFile.deleteOnExit();
 		URL download = new URL(url);
 		ReadableByteChannel rbc = Channels.newChannel(download.openStream());
