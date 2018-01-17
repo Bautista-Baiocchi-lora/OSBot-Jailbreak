@@ -3,7 +3,12 @@ package org.osbot.jailbreak.scripts;
 import org.osbot.jailbreak.data.Engine;
 import org.osbot.jailbreak.ui.logger.Logger;
 
+import java.lang.annotation.Annotation;
 import java.lang.instrument.Instrumentation;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 /**
@@ -18,10 +23,13 @@ public class SetScripts {
         this.instrumentation = instrumentation;
         Logger.log("Starting the search for classes");
         addToTreeMap();
+        setLocalScriptMap();
+        new StartScript();
     }
 
-    public TreeMap<String, Object> localScriptMap() {
-        return null;
+
+    public void setLocalScriptMap() {
+        Engine.getReflectionEngine().setFieldValue("org.osbot.LPT8", "iIIIiiiIiiII", newClassMap);
     }
 
     public Object newLocalScriptInstance(Class<?> clazz) {
@@ -33,7 +41,6 @@ public class SetScripts {
         }
         return null;
     }
-
 
     public Class scriptManifestClass() {
         try {
@@ -47,14 +54,17 @@ public class SetScripts {
     public String getScriptManifestName(Object obj) {
         return (String) Engine.getReflectionEngine().getFieldValue("org.osbot.rs07.script.ScriptManifest", "name", obj);
     }
-
     public void addToTreeMap() {
         for (Class<?> clazz : instrumentation.getAllLoadedClasses()) {
             if (clazz.isAnnotationPresent(scriptManifestClass())) {
-                Logger.log("Found one: " + clazz.getName());
+                Logger.log("Manifest is present for: " + clazz.getName());
+                final Annotation manifest = clazz.getAnnotation(scriptManifestClass());
+                if (manifest != null) {
+                    Logger.log("Adding to map: "+clazz.getName());
+                    newClassMap.put("Fruity Money Snake", newLocalScriptInstance(clazz));
+                }
             }
         }
     }
-
 
 }

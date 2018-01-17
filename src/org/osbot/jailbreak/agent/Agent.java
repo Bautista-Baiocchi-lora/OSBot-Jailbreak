@@ -37,6 +37,7 @@ public class Agent {
                 Logger.log(e.getLocalizedMessage());
             }
         }
+
         String jarPath = file.getAbsolutePath();
         Logger.log(jarPath);
         try {
@@ -61,7 +62,7 @@ public class Agent {
         return tempFile;
     }
 
-    public static void loadAllClasses(JarFile file) {
+    private static void loadAllClasses(JarFile file) {
         Enumeration<JarEntry> entries = file.entries();
         String className = null;
         while (entries.hasMoreElements()) {

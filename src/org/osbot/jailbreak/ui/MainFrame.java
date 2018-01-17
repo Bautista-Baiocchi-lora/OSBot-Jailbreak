@@ -66,7 +66,7 @@ public class MainFrame extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "search":
                 try {
-                    Class<?> c = ClassLoader.getSystemClassLoader().loadClass("org.khal.runecrafterv2.KhalRunecrafter");
+                    Class<?> c = ClassLoader.getSystemClassLoader().loadClass("com.fruityscripts.FruityScript");
                     if (c != null) {
                         Logger.log("Script injected.");
                     }
