@@ -1,7 +1,7 @@
 package org.osbot.jailbreak.ui;
 
 
-import org.osbot.jailbreak.scripts.SetScript;
+import org.osbot.jailbreak.data.Engine;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.ui.logger.LoggerPanel;
 
@@ -64,11 +64,11 @@ public class MainFrame extends JFrame implements ActionListener {
     public void actionPerformed(final ActionEvent e) {
         switch (e.getActionCommand()) {
             case "search":
-
                 break;
             case "dump":
-                new SetScript();
-                break;
+                String s = (String) Engine.getReflectionEngine().getFieldValue("org.osbot.Constants", "IiiIIiiiiIIi");
+                Logger.log("File = "+ s);
+               break;
             case "strip hooks":
 
                 break;

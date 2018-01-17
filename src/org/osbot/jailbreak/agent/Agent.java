@@ -3,7 +3,6 @@ package org.osbot.jailbreak.agent;
 
 import org.osbot.jailbreak.data.Constants;
 import org.osbot.jailbreak.data.Engine;
-import org.osbot.jailbreak.scripts.SetScript;
 import org.osbot.jailbreak.ui.MainFrame;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.util.reflection.ReflectionEngine;
@@ -29,20 +28,11 @@ public class Agent {
 			try {
 				Engine.setReflectionEngine(new ReflectionEngine(ClassLoader.getSystemClassLoader()));
 				File jarFile = downloadJarFile(jarUrl);
+				Engine.getReflectionEngine().setFieldValue("org.osbot.Constants", "IiiIIiiiiIIi", jarFile.getAbsolutePath().replace("test.jar", "")); //WE change the path to local jars
 				Logger.log("Downloaded");
 				instrumentation.appendToSystemClassLoaderSearch(new JarFile(jarFile));
-				Class<?> c = ClassLoader.getSystemClassLoader().loadClass("org.osbot.maestro.script.MaestroSlayer");
-				if (c != null) {
-					Logger.log("Script injected.");
-					jarFile.delete();
-				} else {
-					Logger.logException("Failed to inject script.");
-					jarFile.delete();
-				}
 
 			} catch (IOException e) {
-				Logger.log(e.getLocalizedMessage());
-			} catch (ClassNotFoundException e) {
 				Logger.log(e.getLocalizedMessage());
 			}
 		}
@@ -50,7 +40,7 @@ public class Agent {
 
 
 	private static File downloadJarFile(String url) throws IOException {
-		File tempFile = new File(System.getProperty("user.home") + File.separator + "test.jar");
+		File tempFile = new File(System.getProperty("user.home") + File.separator + "test/test.jar");
 		Logger.log(tempFile.getAbsolutePath());
 		tempFile.deleteOnExit();
 		URL download = new URL(url);
