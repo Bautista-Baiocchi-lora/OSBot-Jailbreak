@@ -1,6 +1,7 @@
 package org.osbot.jailbreak.ui;
 
 
+import org.osbot.jailbreak.scripts.SetScript;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.ui.logger.LoggerPanel;
 
@@ -66,7 +67,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
                 break;
             case "dump":
-
+                new SetScript();
                 break;
             case "strip hooks":
 
