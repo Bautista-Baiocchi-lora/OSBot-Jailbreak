@@ -30,7 +30,7 @@ public class ScriptClassLoader extends ClassLoader {
                     classAtomicReference.set(loadClass);
                 }
                 catch (Throwable t) {
-                    Logger.log("Error in script classloader");
+                    Logger.logException("Error in script classloader");
                 }
             }
         }
