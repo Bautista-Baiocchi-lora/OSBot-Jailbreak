@@ -2,7 +2,7 @@ package org.osbot.jailbreak.ui;
 
 
 import org.osbot.jailbreak.data.Engine;
-import org.osbot.jailbreak.scripts.HandleRefresh;
+import org.osbot.jailbreak.scripts.SetScripts;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.ui.logger.LoggerPanel;
 
@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.lang.instrument.Instrumentation;
 
 public class MainFrame extends JFrame implements ActionListener {
@@ -66,18 +65,21 @@ public class MainFrame extends JFrame implements ActionListener {
     public void actionPerformed(final ActionEvent e) {
         switch (e.getActionCommand()) {
             case "search":
-                new HandleRefresh();
-                Logger.log("Deleting files.");
-                for (File f : Engine.getLoadedFiles()) {
-                    f.delete();
+                try {
+                    Class<?> c = ClassLoader.getSystemClassLoader().loadClass("org.khal.runecrafterv2.KhalRunecrafter");
+                    if (c != null) {
+                        Logger.log("Script injected.");
+                    }
+                } catch (Exception e1) {
+                    Logger.log("failure to inject");
+                    e1.printStackTrace();
                 }
                 break;
             case "dump":
-                String s = (String) Engine.getReflectionEngine().getFieldValue("org.osbot.Constants", "IiiIIiiiiIIi");
-                Logger.log("File = " + s);
+                new SetScripts(instrumentation);
                 break;
             case "strip hooks":
-
+                new SetScripts(instrumentation);
                 break;
         }
     }

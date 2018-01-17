@@ -4,10 +4,7 @@ import org.osbot.jailbreak.data.Engine;
 import org.osbot.jailbreak.ui.logger.Logger;
 
 import java.lang.instrument.Instrumentation;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.TreeMap;
-import java.util.jar.JarFile;
 
 /**
  * Created by Ethan on 1/17/2018.
@@ -58,7 +55,6 @@ public class SetScripts {
             }
         }
     }
-
 
 
 }
