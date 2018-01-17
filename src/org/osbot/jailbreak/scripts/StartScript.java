@@ -6,9 +6,12 @@ import org.osbot.jailbreak.data.Engine;
  * Created by Ethan on 1/17/2018.
  */
 public class StartScript {
+
+
     public StartScript() {
-        startScript("Fruity Money Snake");
+        startScript("Fuck fruity");
     }
+
 
     public void startScript(String scriptName) {
         Engine.getReflectionEngine().startScript(getBot(), getCurrentTab(), scriptName);

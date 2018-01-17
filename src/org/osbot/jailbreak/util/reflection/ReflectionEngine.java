@@ -113,7 +113,7 @@ public class ReflectionEngine {
                 if (m.getName().equals("iiIIiiiIiIii")) {
                     if (m.getParameterCount() == 4) {
                         Logger.log("We're invoking script start");
-                        m.invoke(bot, randoms, scriptName, "70hb:itwas");
+                        m.invoke(bot, randoms, scriptName, null);
                     }
                 }
             }
