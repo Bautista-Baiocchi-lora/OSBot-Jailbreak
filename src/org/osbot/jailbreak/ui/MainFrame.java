@@ -1,8 +1,8 @@
 package org.osbot.jailbreak.ui;
 
 
-import org.osbot.jailbreak.data.Engine;
-import org.osbot.jailbreak.scripts.SetScripts;
+import org.osbot.jailbreak.data.Constants;
+import org.osbot.jailbreak.scripts.DownloadScript;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.ui.logger.LoggerPanel;
 
@@ -65,22 +65,12 @@ public class MainFrame extends JFrame implements ActionListener {
     public void actionPerformed(final ActionEvent e) {
         switch (e.getActionCommand()) {
             case "search":
-                try {
-                    Class<?> c = ClassLoader.getSystemClassLoader().loadClass("com.fruityscripts.FruityScript");
-                    if (c != null) {
-                        Logger.log("Script injected.");
-                    }
-                } catch (Exception e1) {
-                    Logger.log("failure to inject");
-                    e1.printStackTrace();
-                }
                 break;
             case "dump":
-                new SetScripts(instrumentation);
+                new DownloadScript("Fuck OSBot", Constants.JAR_URLS[0]);
                 break;
             case "strip hooks":
-                new SetScripts(instrumentation);
-                break;
+              break;
         }
     }
 }

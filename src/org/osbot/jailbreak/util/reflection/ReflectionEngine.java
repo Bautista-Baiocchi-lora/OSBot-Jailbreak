@@ -106,40 +106,6 @@ public class ReflectionEngine {
         }
         return null;
     }
-    public void startScript(Object bot, Object randoms, String scriptName) {
-        try {
-            final ReflectedClass clazz = getClass("org.osbot.Gb");
-            for (ReflectedMethod m : clazz.getMethods()) {
-                if (m.getName().equals("iiIIiiiIiIii")) {
-                    if (m.getParameterCount() == 4) {
-                        Logger.log("We're invoking script start");
-                        m.invoke(bot, randoms, scriptName, null);
-                    }
-                }
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
-    public Object getBotValue(String className, String fieldName, int paramCount, String returnType, Object instance) {
-        try {
-            final ReflectedClass clazz = getClass(className, instance);
-            for (ReflectedMethod m : clazz.getMethods()) {
-                if (m.getName().equals(fieldName)) {
-                    if (m.getParameterCount() == paramCount) {
-                    if(m.getReturnType().toGenericString().equals(returnType)) {
-                        Logger.log("Getting Bot Value");
-                        return m.invoke();
-                    }
-
-                    }
-                }
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
     public Object getMethodValue(String className, String fieldName, int paramCount, String returnType, Object instance) {
         try {
             final ReflectedClass clazz = getClass(className, instance);
