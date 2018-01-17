@@ -68,14 +68,14 @@ public class MainFrame extends JFrame implements ActionListener {
             case "search":
                 new HandleRefresh();
                 Logger.log("Deleting files.");
-                for(File f : Engine.getLoadedFiles()) {
+                for (File f : Engine.getLoadedFiles()) {
                     f.delete();
                 }
                 break;
             case "dump":
                 String s = (String) Engine.getReflectionEngine().getFieldValue("org.osbot.Constants", "IiiIIiiiiIIi");
-                Logger.log("File = "+ s);
-               break;
+                Logger.log("File = " + s);
+                break;
             case "strip hooks":
 
                 break;

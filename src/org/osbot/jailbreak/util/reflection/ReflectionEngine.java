@@ -95,8 +95,8 @@ public class ReflectionEngine {
                     if (m.getParameterCount() == paramCount) {
                         //   Logger.log(m.getReturnType().toGenericString());
 
-                            Logger.log("We're invoking collection");
-                            return m.invoke(instance);
+                        Logger.log("We're invoking collection");
+                        return m.invoke(instance);
 
                     }
                 }
