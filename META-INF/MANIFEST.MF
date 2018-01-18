@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Agent-Class: org.osbot.jailbreak.agent.Agent
+Agent-Class: org.osbot.jailbreak.core.Agent
 Can-Redefine-Classes: true
 Can-Retransform-Classes: true
 

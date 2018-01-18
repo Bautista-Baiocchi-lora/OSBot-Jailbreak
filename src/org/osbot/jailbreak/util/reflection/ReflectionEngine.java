@@ -1,8 +1,5 @@
 package org.osbot.jailbreak.util.reflection;
 
-import org.osbot.jailbreak.agent.Agent;
-import org.osbot.jailbreak.ui.logger.Logger;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 

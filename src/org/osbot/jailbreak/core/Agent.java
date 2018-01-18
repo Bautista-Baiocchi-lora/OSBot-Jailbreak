@@ -1,4 +1,4 @@
-package org.osbot.jailbreak.agent;
+package org.osbot.jailbreak.core;
 
 
 import org.osbot.jailbreak.hooks.Hook;
@@ -19,6 +19,7 @@ public class Agent {
 	private static ReflectionEngine reflectionEngine;
 
 	public static void agentmain(String args, Instrumentation instrumentation) {
+		System.setSecurityManager(new PermissionManager());
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (IllegalAccessException | ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException e) {

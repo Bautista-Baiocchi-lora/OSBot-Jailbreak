@@ -1,6 +1,6 @@
 package org.osbot.jailbreak.scripts;
 
-import org.osbot.jailbreak.agent.Agent;
+import org.osbot.jailbreak.core.Agent;
 import org.osbot.jailbreak.hooks.Hook;
 import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
