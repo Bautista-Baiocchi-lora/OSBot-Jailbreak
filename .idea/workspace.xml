@@ -7,27 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="487d7904-ae03-4e5a-b726-fa40bc857a2c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/agent/Agent.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/agent/Agent.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/data/Constants.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/data/Constants.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/data/Engine.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/data/Engine.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/DownloadScript.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/DownloadScript.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/StartScript.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/StartScript.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/MainFrame.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/MainFrame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/LogType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/Logger.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/Logger.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectionEngine.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectionEngine.class" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/agent/Agent.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/agent/Agent.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/data/Constants.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/data/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/data/Engine.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/DownloadScript.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/DownloadScript.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptClassLoader.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptClassLoader.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/StartScript.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/StartScript.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/agent/Agent.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/data/Constants.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/DownloadScript.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptClassLoader.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/StartScript.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/MainFrame.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/Logger.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/LoggerFlag.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/LoggerPanel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers$Condition.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers$ModifierBuilder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedClass$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedClass.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedConstructor.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedField.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedMethod.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectionEngine.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LogType.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/Logger.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/Logger.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/util/reflection/ReflectionEngine.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/util/reflection/ReflectionEngine.java" />
+      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerPanel.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScriptClassLoader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScriptClassLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptClassLoader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -72,11 +73,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoggerPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+            <state relative-caret-position="344">
+              <caret line="46" column="66" lean-forward="false" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -164,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/HandleRefresh.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptManifest.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/SetScripts.java" />
-        <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/Logger.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/data/Constants.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/data/Engine.java" />
@@ -173,6 +183,8 @@
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/agent/Agent.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/StartScript.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptClassLoader.java" />
+        <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerPanel.java" />
+        <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java" />
       </list>
     </option>
   </component>
@@ -527,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516148746309</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="House keeping, ui improvement">
+      <created>1516232672257</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1516232672257</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -589,7 +608,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Newest" />
     <MESSAGE value="Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working" />
+    <MESSAGE value="House keeping, ui improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="House keeping, ui improvement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,8 +656,8 @@
         <state relative-caret-position="85">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
-            <element signature="e#1210#1211#0" expanded="false" />
-            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1863#1864#0" expanded="false" />
+            <element signature="e#2199#2200#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -747,14 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerFlag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -822,14 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/agent/Agent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -845,6 +849,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/logger/LoggerPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/ui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="46" column="66" lean-forward="false" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
           <folding />
         </state>
       </provider>
