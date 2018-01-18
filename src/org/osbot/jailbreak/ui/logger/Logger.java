@@ -15,7 +15,6 @@ public class Logger extends JTextPane {
 	private static final SimpleAttributeSet attribute = new SimpleAttributeSet();
 	private static Logger instance;
 	private static StyledDocument document;
-	private final Color color = new Color(92, 98, 106);
 
 
 	public Logger() {
@@ -26,7 +25,6 @@ public class Logger extends JTextPane {
 		setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
 		final DefaultCaret caret = (DefaultCaret) getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-		setBackground(color);
 	}
 
 	private static void write(final String str, final LoggerFlag... flags) {
@@ -39,7 +37,7 @@ public class Logger extends JTextPane {
 				StyleConstants.setBold(attribute, true);
 			}
 		} else {
-			StyleConstants.setForeground(attribute, Color.WHITE);
+			StyleConstants.setForeground(attribute, Color.BLACK);
 			StyleConstants.setBold(attribute, false);
 		}
 		stringBuilder.append(str);

@@ -94,7 +94,7 @@ public class DownloadScript {
 			dataInputStream.close();
 			return byteArrayOutputStream.toByteArray();
 		} catch (Exception e) {
-			e.printStackTrace();
+			Logger.logException("Invalid data error!");
 		}
 		return null;
 	}

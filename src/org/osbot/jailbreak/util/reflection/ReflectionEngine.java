@@ -88,9 +88,6 @@ public class ReflectionEngine {
 			for (ReflectedMethod m : clazz.getMethods()) {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {
-						//   Logger.log(m.getReturnType().toGenericString());
-
-						Logger.log("We're invoking collection");
 						return m.invoke(instance);
 
 					}
@@ -109,7 +106,6 @@ public class ReflectionEngine {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {
 						if (m.getReturnType().toGenericString().equals(returnType)) {
-							Logger.log("Getting method Value: " + m.getReturnType().toGenericString());
 							return m.invoke();
 						}
 

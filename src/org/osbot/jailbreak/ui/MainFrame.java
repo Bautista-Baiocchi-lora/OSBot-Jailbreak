@@ -27,13 +27,14 @@ public class MainFrame extends JFrame implements ActionListener {
 		super("OSBot Jailbreak");
 		this.instrumentation = instrumentation;
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		setResizable(false);
 
 		this.menuBar = new JMenuBar();
 		this.settingsMenu = new JMenu("Settings");
 		this.showLogger = new JCheckBoxMenuItem("Show Logger");
 		this.showLogger.setActionCommand("show logger");
 		this.showLogger.addActionListener(this::actionPerformed);
-		this.showLogger.setSelected(false);
+		this.showLogger.setSelected(true);
 		this.settingsMenu.add(showLogger);
 		this.menuBar.add(settingsMenu);
 		this.setJMenuBar(menuBar);
@@ -44,10 +45,12 @@ public class MainFrame extends JFrame implements ActionListener {
 		this.add(startScript, BorderLayout.NORTH);
 
 		this.scriptSelector = new JList<>();
-		this.scriptSelector.setPreferredSize(new Dimension(500, 150));
-		this.add(new JScrollPane(scriptSelector), BorderLayout.CENTER);
+		JScrollPane scriptSelectorPane = new JScrollPane(scriptSelector, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scriptSelectorPane.setPreferredSize(new Dimension(500, 150));
+		this.add(scriptSelectorPane, BorderLayout.CENTER);
 
 		this.logger = new LoggerPanel(new Logger());
+		this.add(logger, BorderLayout.SOUTH);
 
 		pack();
 		setLocationRelativeTo(getOwner());
