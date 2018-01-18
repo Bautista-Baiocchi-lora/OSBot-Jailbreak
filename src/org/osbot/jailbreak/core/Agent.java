@@ -10,6 +10,10 @@ import org.osbot.jailbreak.util.reflection.ReflectionEngine;
 import javax.swing.*;
 import java.io.IOException;
 import java.lang.instrument.Instrumentation;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 
 /**
  * Created by Ethan & Bautsita on 1/14/2018.
@@ -46,6 +50,17 @@ public class Agent {
 
 	public static Object getBotAppInstance() {
 		return reflectionEngine.getFieldValue(HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getClassName(), HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getTarget());
+	}
+
+
+	private static String getMacAddress() throws UnknownHostException, SocketException {
+		NetworkInterface network = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
+		byte[] mac = network.getHardwareAddress();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < mac.length; i++) {
+			sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+		}
+		return sb.toString();
 	}
 
 }
