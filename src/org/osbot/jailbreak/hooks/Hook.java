@@ -2,16 +2,18 @@ package org.osbot.jailbreak.hooks;
 
 public class Hook {
 
-	private final String className;
-	private String target;
+	private final String className, target, returType;
+	private final int parameterCount;
 
-	public Hook(String className) {
-		this.className = className;
+	private Hook(Builder builder) {
+		this.className = builder.className;
+		this.target = builder.target;
+		this.parameterCount = builder.parameterCount;
+		this.returType = builder.returnType;
 	}
 
-	public Hook(String className, String target) {
-		this(className);
-		this.target = target;
+	public String getReturType() {
+		return returType;
 	}
 
 	public String getClassName() {
@@ -22,7 +24,38 @@ public class Hook {
 		return target;
 	}
 
-	public void setTarget(final String target) {
-		this.target = target;
+	public int getParameterCount() {
+		return parameterCount;
+	}
+
+	public static class Builder {
+
+		private final String className;
+		private String target, returnType;
+		private int parameterCount;
+
+		public Builder(String className) {
+			this.className = className;
+		}
+
+		public Builder returnType(String returnType) {
+			this.returnType = returnType;
+			return this;
+		}
+
+		public Builder target(String target) {
+			this.target = target;
+			return this;
+		}
+
+		public Builder parameterCount(int parameterCount) {
+			this.parameterCount = parameterCount;
+			return this;
+		}
+
+		public Hook build() {
+			return new Hook(this);
+		}
+
 	}
 }

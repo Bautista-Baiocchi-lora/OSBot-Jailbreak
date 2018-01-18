@@ -1,6 +1,7 @@
 package org.osbot.jailbreak.agent;
 
 
+import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.MainFrame;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.util.reflection.ReflectionEngine;
@@ -22,6 +23,7 @@ public class Agent {
 		} catch (IllegalAccessException | ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
+		new HookManager();
 		new MainFrame(instrumentation);
 		Logger.log("Injecting jailbreak...");
 		try {
@@ -37,7 +39,7 @@ public class Agent {
 	}
 
 	public static Object getBotAppInstance() {
-		return reflectionEngine.getFieldValue("org.osbot.BotApplication", "iiiiiiiiIiii");
+		return reflectionEngine.getFieldValue(HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getClassName(), HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getTarget());
 	}
 
 }

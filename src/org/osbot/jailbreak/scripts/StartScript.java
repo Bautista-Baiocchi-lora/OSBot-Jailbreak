@@ -1,6 +1,8 @@
 package org.osbot.jailbreak.scripts;
 
 import org.osbot.jailbreak.agent.Agent;
+import org.osbot.jailbreak.hooks.Hook;
+import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.util.reflection.ReflectedClass;
 import org.osbot.jailbreak.util.reflection.ReflectedMethod;
@@ -26,7 +28,9 @@ public class StartScript {
 	 * @Usage The insance for the class that holds bot preferences - Aka - User/Pass, dismiss? Breaks?
 	 */
 	public Object getPreferencesClassInstance() {
-		return Agent.getReflectionEngine().getMethodValue("org.osbot.BotApplication", "iiIIiiiIiIii", 0, "public class org.osbot.Kc", Agent.getBotAppInstance());
+		Hook hook = HookManager.getHook(HookManager.Key.PREFERENCE_CLASS_INSTANCE);
+		return Agent.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(),
+				hook.getParameterCount(), hook.getReturType(), Agent.getBotAppInstance());
 	}
 
 	/**
@@ -35,7 +39,8 @@ public class StartScript {
 	 * @Usage The insance for the current users bot preferences - Aka - User/Pass, dismiss? Breaks?
 	 */
 	public Object getBottingPreferences() {
-		return Agent.getReflectionEngine().getMethodValue("org.osbot.Kc", "iiIIiiiIiIii", 1, "public class org.osbot.ad", getPreferencesClassInstance());
+		Hook hook = HookManager.getHook(HookManager.Key.BOT_PREFERENCES);
+		return Agent.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), getPreferencesClassInstance());
 	}
 
 	/**
@@ -45,10 +50,11 @@ public class StartScript {
 	 */
 	public void startScript(Object bot, Object randoms, String scriptName) {
 		try {
-			final ReflectedClass clazz = Agent.getReflectionEngine().getClass("org.osbot.Gb");
+			Hook hook = HookManager.getHook(HookManager.Key.START_SCRIPT);
+			final ReflectedClass clazz = Agent.getReflectionEngine().getClass(hook.getClassName());
 			for (ReflectedMethod m : clazz.getMethods()) {
-				if (m.getName().equals("iiIIiiiIiIii")) {
-					if (m.getParameterCount() == 4) {
+				if (m.getName().equals(hook.getTarget())) {
+					if (m.getParameterCount() == hook.getParameterCount()) {
 						Logger.log("Starting script...");
 						m.invoke(bot, randoms, scriptName, null);
 					}
@@ -65,7 +71,8 @@ public class StartScript {
 	 * @Usage The instance for the current bot's tab.
 	 */
 	public Object getBot() {
-		return getBotValue("org.osbot.BotApplication", "iiIIiiiIiIii", 0, "public class org.osbot.rs07.Bot", Agent.getBotAppInstance());
+		Hook hook = HookManager.getHook(HookManager.Key.BOT_INSTANCE);
+		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), Agent.getBotAppInstance());
 	}
 
 	/**

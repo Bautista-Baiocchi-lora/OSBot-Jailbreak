@@ -1,6 +1,8 @@
 package org.osbot.jailbreak.scripts;
 
 import org.osbot.jailbreak.agent.Agent;
+import org.osbot.jailbreak.hooks.Hook;
+import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
 
 import java.io.ByteArrayInputStream;
@@ -40,7 +42,8 @@ public class DownloadScript {
 	 */
 	private void addToTreeMap() {
 		SDNClassMap.put(scriptName, getSDNScript(scriptLink));
-		Agent.getReflectionEngine().setFieldValue("org.osbot.LPT8", "iIIIiiiIiiII", SDNClassMap);
+		Hook hook = HookManager.getHook(HookManager.Key.SCRIPT_MAP);
+		Agent.getReflectionEngine().setFieldValue(hook.getClassName(), hook.getTarget(), SDNClassMap);
 	}
 
 	/**
@@ -105,7 +108,7 @@ public class DownloadScript {
 	private Object newScript(Class<?> clazz) {
 		try {
 			ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-			return classLoader.loadClass("org.osbot.SA").getDeclaredConstructor(Class.class, boolean.class).newInstance(clazz, false);
+			return classLoader.loadClass(HookManager.getHook(HookManager.Key.SDN_SCRIPT).getClassName()).getDeclaredConstructor(Class.class, boolean.class).newInstance(clazz, false);
 		} catch (Exception e) {
 			Logger.logException("Script preparation error!");
 		}
