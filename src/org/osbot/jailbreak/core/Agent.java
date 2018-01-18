@@ -14,7 +14,9 @@ import java.lang.instrument.Instrumentation;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
-import java.net.UnknownHostException;;
+import java.net.UnknownHostException;
+
+;
 
 /**
  * Created by Ethan & Bautsita on 1/14/2018.
@@ -31,8 +33,11 @@ public class Agent {
 		}
 		new MainFrame(instrumentation);
 		try {
-			String str = getMacAddress();
-			Logger.log("Are we verified: "+NetUtils.isVerified(str));
+			if (NetUtils.isVerified(getMacAddress())) {
+				Logger.log("Access granted, Happy botting!");
+			} else {
+				System.exit(0);
+			}
 		} catch (Exception e) {
 			Logger.log(e.getLocalizedMessage());
 		}
@@ -58,6 +63,7 @@ public class Agent {
 	public static Object getBotAppInstance() {
 		return reflectionEngine.getFieldValue(HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getClassName(), HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getTarget());
 	}
+
 	private static String getMacAddress() throws UnknownHostException, SocketException {
 		InetAddress ip;
 		ip = InetAddress.getLocalHost();
@@ -67,7 +73,7 @@ public class Agent {
 		for (int i = 0; i < mac.length; i++) {
 			sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
 		}
-		Logger.log("Current MAC address : "+sb.toString());
+		Logger.log("Current MAC address : " + sb.toString());
 		return sb.toString();
 	}
 
