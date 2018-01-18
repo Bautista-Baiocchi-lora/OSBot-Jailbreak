@@ -14,7 +14,6 @@ import java.lang.instrument.Instrumentation;
 
 public class MainFrame extends JFrame implements ActionListener {
 
-
 	private final Instrumentation instrumentation;
 	private final LoggerPanel logger;
 	private final JButton startScript;

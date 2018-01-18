@@ -38,7 +38,7 @@ public class NetUtils {
 				response.append(inputLine);
 			}
 			in.close();
-			if (response.toString().trim().equals("Verified")) {
+			if (response.toString().trim().contains("true")) {
 				return true;
 			}
 		} else {

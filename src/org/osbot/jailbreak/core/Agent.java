@@ -36,7 +36,8 @@ public class Agent {
 			if (NetUtils.isVerified(getMacAddress())) {
 				Logger.log("Access granted, Happy botting!");
 			} else {
-				System.exit(0);
+				Logger.log("Access denied.");
+				//System.exit(0);
 			}
 		} catch (Exception e) {
 			Logger.log(e.getLocalizedMessage());
