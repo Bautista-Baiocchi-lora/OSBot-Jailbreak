@@ -17,7 +17,7 @@ import java.util.zip.ZipEntry;
 /**
  * Created by Ethan on 1/17/2018.
  */
-public class DownloadScript {
+public class ScriptInjector {
 	private TreeMap<String, Object> SDNClassMap = new TreeMap<>();
 	private String scriptLink;
 	private String scriptName;
@@ -26,13 +26,13 @@ public class DownloadScript {
 	 * @Author Ethan & Bautista
 	 * @Usage Downloads the ripped script and preps for run-time.
 	 */
-	public DownloadScript(String creativeName, String link) {
+	public ScriptInjector(String creativeName, String link) {
 		Logger.log("Preparing script...");
 		this.scriptLink = link;
 		this.scriptName = creativeName;
 		Logger.log("Injecting script...");
 		addToTreeMap();
-		new StartScript(creativeName);
+		new ScriptExecutor(creativeName);
 	}
 
 	/**

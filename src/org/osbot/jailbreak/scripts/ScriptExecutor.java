@@ -12,13 +12,13 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * Created by Ethan on 1/17/2018.
  */
-public class StartScript {
+public class ScriptExecutor {
 
 	/**
 	 * @Author Ethan & Bautista
 	 * @Usage Emulates the script loading system for osbot
 	 */
-	public StartScript(String scriptName) {
+	public ScriptExecutor(String scriptName) {
 		startScript(getBot(), getBottingPreferences(), scriptName);
 	}
 

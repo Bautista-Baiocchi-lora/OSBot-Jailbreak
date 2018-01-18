@@ -2,7 +2,7 @@ package org.osbot.jailbreak.ui;
 
 
 import org.osbot.jailbreak.data.Constants;
-import org.osbot.jailbreak.scripts.DownloadScript;
+import org.osbot.jailbreak.scripts.ScriptInjector;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.ui.logger.LoggerPanel;
 
@@ -61,7 +61,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	public void actionPerformed(final ActionEvent e) {
 		switch (e.getActionCommand()) {
 			case "start script":
-				new DownloadScript("Fuck OSBot", Constants.JAR_URLS[0]);
+				new ScriptInjector("Fuck OSBot", Constants.JAR_URLS[0]);
 				break;
 			case "show logger":
 				if (showLogger.isSelected()) {

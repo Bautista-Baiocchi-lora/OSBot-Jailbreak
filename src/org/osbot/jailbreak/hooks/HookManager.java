@@ -20,6 +20,7 @@ public class HookManager {
 		hooks.put(Key.SDN_SCRIPT, new Hook.Builder("org.osbot.SA").build());
 		hooks.put(Key.SCRIPT_MAP, new Hook.Builder("org.osbot.LPT8").target("iIIIiiiIiiII").build());
 		hooks.put(Key.SCRIPT_MANIFEST, new Hook.Builder("org.osbot.rs07.script.ScriptManifest").build());
+		hooks.put(Key.VIP, new Hook.Builder("org.osbot.BotApplication").target("IIiIiiiiIiiI").build());
 	}
 
 	public static Hook getHook(Key key) {
@@ -29,7 +30,7 @@ public class HookManager {
 	public static enum Key {
 		BOT_INSTANCE("Bot instance"), START_SCRIPT("Start script"), BOT_APP_INSTANCE("Bot app instance"),
 		PREFERENCE_CLASS_INSTANCE("Preference class instance"), BOT_PREFERENCES("Bot preferences"),
-		SDN_SCRIPT("SDN script"), SCRIPT_MAP("Script map"), SCRIPT_MANIFEST("Script manifest");
+		SDN_SCRIPT("SDN script"), SCRIPT_MAP("Script map"), SCRIPT_MANIFEST("Script manifest"), VIP("Vip");
 
 		private final String name;
 

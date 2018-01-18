@@ -1,6 +1,7 @@
 package org.osbot.jailbreak.agent;
 
 
+import org.osbot.jailbreak.hooks.Hook;
 import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.MainFrame;
 import org.osbot.jailbreak.ui.logger.Logger;
@@ -23,8 +24,9 @@ public class Agent {
 		} catch (IllegalAccessException | ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		new HookManager();
 		new MainFrame(instrumentation);
+		Logger.log("Preparing jailbreak...");
+		new HookManager();
 		Logger.log("Injecting jailbreak...");
 		try {
 			reflectionEngine = new ReflectionEngine(ClassLoader.getSystemClassLoader());
@@ -32,6 +34,10 @@ public class Agent {
 		} catch (IOException io) {
 			Logger.logException("Jailbreak failed to inject!");
 		}
+		Logger.log("Granting VIP permissions.");
+		Hook hook = HookManager.getHook(HookManager.Key.VIP);
+		reflectionEngine.setFieldValue(hook.getClassName(), hook.getTarget(), true, getBotAppInstance());
+		Logger.log("VIP permissions granted.");
 	}
 
 	public static ReflectionEngine getReflectionEngine() {
