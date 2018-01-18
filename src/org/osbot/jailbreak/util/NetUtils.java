@@ -38,6 +38,7 @@ public class NetUtils {
 				response.append(inputLine);
 			}
 			in.close();
+			Logger.log(response.toString());
 			if (response.toString().trim().contains("true")) {
 				return true;
 			}

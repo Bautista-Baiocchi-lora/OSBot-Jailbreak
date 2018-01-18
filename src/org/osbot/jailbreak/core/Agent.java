@@ -10,11 +10,14 @@ import org.osbot.jailbreak.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.instrument.Instrumentation;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 ;
 
@@ -33,7 +36,7 @@ public class Agent {
 		}
 		new MainFrame(instrumentation);
 		try {
-			if (NetUtils.isVerified(getMacAddress())) {
+			if (NetUtils.isVerified(getHWID())) {
 				Logger.log("Access granted, Happy botting!");
 			} else {
 				Logger.log("Access denied.");
@@ -65,17 +68,23 @@ public class Agent {
 		return reflectionEngine.getFieldValue(HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getClassName(), HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getTarget());
 	}
 
-	private static String getMacAddress() throws UnknownHostException, SocketException {
-		InetAddress ip;
-		ip = InetAddress.getLocalHost();
-		NetworkInterface network = NetworkInterface.getByInetAddress(ip);
-		byte[] mac = network.getHardwareAddress();
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < mac.length; i++) {
-			sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+	public static String getHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
+
+		String s = "";
+		final String main = System.getenv("PROCESSOR_IDENTIFIER") + System.getenv("COMPUTERNAME") + System.getProperty("user.name").trim();
+		final byte[] bytes = main.getBytes("UTF-8");
+		final MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+		final byte[] md5 = messageDigest.digest(bytes);
+		int i = 0;
+		for (final byte b : md5) {
+			s += Integer.toHexString((b & 0xFF) | 0x300).substring(0, 3);
+			if (i != md5.length - 1) {
+				s += "-";
+			}
+			i++;
 		}
-		Logger.log("Current MAC address : " + sb.toString());
-		return sb.toString();
+		Logger.log("HWID: "+s);
+		return s;
 	}
 
 }
