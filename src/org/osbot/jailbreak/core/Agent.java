@@ -40,7 +40,7 @@ public class Agent {
 				Logger.log("Access granted, Happy botting!");
 			} else {
 				Logger.log("Access denied.");
-				//System.exit(0);
+				System.exit(0);
 			}
 		} catch (Exception e) {
 			Logger.log(e.getLocalizedMessage());
@@ -69,7 +69,6 @@ public class Agent {
 	}
 
 	public static String getHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
-
 		String s = "";
 		final String main = System.getenv("PROCESSOR_IDENTIFIER") + System.getenv("COMPUTERNAME") + System.getProperty("user.name").trim();
 		final byte[] bytes = main.getBytes("UTF-8");
@@ -83,7 +82,6 @@ public class Agent {
 			}
 			i++;
 		}
-		Logger.log("HWID: "+s);
 		return s;
 	}
 
