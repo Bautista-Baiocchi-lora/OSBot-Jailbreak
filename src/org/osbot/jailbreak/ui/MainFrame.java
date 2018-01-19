@@ -38,7 +38,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		this.spoofUsername = new JCheckBoxMenuItem("Spoof Username");
 		this.spoofUsername.setActionCommand("spoof username");
 		this.spoofUsername.addActionListener(this::actionPerformed);
-		this.menuBar.add(spoofUsername);
+		this.settingsMenu.add(spoofUsername);
 		this.menuBar.add(settingsMenu);
 		this.setJMenuBar(menuBar);
 
