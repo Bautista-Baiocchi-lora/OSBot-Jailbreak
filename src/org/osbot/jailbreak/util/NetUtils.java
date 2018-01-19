@@ -1,8 +1,5 @@
 package org.osbot.jailbreak.util;
 
-import org.osbot.jailbreak.data.Constants;
-import org.osbot.jailbreak.ui.logger.Logger;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,33 +14,63 @@ public class NetUtils {
 
 	private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/57.0";
 
-	public static boolean isVerified(String HWID) throws IOException {
-		URL obj = new URL(Constants.VERIFY_ACCESS_URL);
-		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-		con.setRequestMethod("POST");
-		con.setRequestProperty("User-Agent", USER_AGENT);
-		con.setDoOutput(true);
-		OutputStream os = con.getOutputStream();
-		String urlParameters = "search=" + HWID + "&submit=Search";
-		os.write(urlParameters.getBytes());
-		os.flush();
-		os.close();
-		int responseCode = con.getResponseCode();
+	public static boolean isValidHwid(String hwid) {
+		StringBuilder parameters = new StringBuilder();
+		final String VERIFY_ACCESS_URL = "http://botupgrade.us/private/check/check.php?";
+		parameters.append("search=").append(hwid).append("&submit=Search");
+		String response = null;
+		try {
+			response = NetUtils.postResponse(VERIFY_ACCESS_URL, parameters.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (response != null) {
+			if (response.contains("true")) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean isVIP(String id) {
+		final String VERIFY_VIP_URL = "http://botupgrade.us/private/check/paid.php?";
+		StringBuilder parameters = new StringBuilder();
+		parameters.append("uid=").append(id).append("&submit=Search");
+		String response = null;
+		try {
+			response = NetUtils.postResponse(VERIFY_VIP_URL, parameters.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (response != null) {
+			if (response.trim().equals("1")) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static String postResponse(String url, String parameter) throws IOException {
+		URL requestTarget = new URL(url);
+		HttpURLConnection connection = (HttpURLConnection) requestTarget.openConnection();
+		connection.setRequestMethod("POST");
+		connection.setRequestProperty("User-Agent", USER_AGENT);
+		connection.setDoOutput(true);
+		OutputStream outputStream = connection.getOutputStream();
+		outputStream.write(parameter.getBytes());
+		outputStream.close();
+		int responseCode = connection.getResponseCode();
 		if (responseCode == HttpURLConnection.HTTP_OK) {
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					con.getInputStream()));
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String inputLine;
 			StringBuffer response = new StringBuffer();
 			while ((inputLine = in.readLine()) != null) {
 				response.append(inputLine);
 			}
 			in.close();
-			if (response.toString().trim().contains("true")) {
-				return true;
-			}
-		} else {
-			Logger.log("Error Verifying License!");
+			return response.toString().trim();
 		}
-		return false;
+		System.out.println("HTTP request error!");
+		return null;
 	}
 }

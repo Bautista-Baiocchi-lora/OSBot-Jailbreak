@@ -12,10 +12,6 @@ import javax.swing.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.instrument.Instrumentation;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -34,10 +30,21 @@ public class Agent {
 		} catch (IllegalAccessException | ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		new MainFrame(instrumentation);
+		new MainFrame(instrumentation, args.split(":")[0]);
 		try {
-			if (NetUtils.isVerified(getHWID())) {
-				Logger.log("Access granted, Happy botting!");
+			Logger.log("Double checking permission...");
+			if (getHWID().equalsIgnoreCase(args.split(":")[1])) {
+				if (NetUtils.isValidHwid(args.split(":")[1])) {
+					if (NetUtils.isVIP(args.split(":")[0])) {
+						Logger.log("Access granted, Happy botting!");
+					} else {
+						Logger.log("Access denied.");
+						System.exit(0);
+					}
+				} else {
+					Logger.log("Access denied.");
+					System.exit(0);
+				}
 			} else {
 				Logger.log("Access denied.");
 				System.exit(0);
