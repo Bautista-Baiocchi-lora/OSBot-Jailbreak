@@ -4,6 +4,8 @@ package org.osbot.jailbreak.scripts;
 import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -15,11 +17,21 @@ public class ScriptClassLoader extends ClassLoader {
 	private final HashMap<String, byte[]> scriptByteMap;
 	private final HashMap<String, Class<?>> scriptClassMap;
 	public final AtomicReference<Class<?>> classAtomicReference;
+	private final HashMap<String, byte[]> resourceMap;
 
-	public ScriptClassLoader(HashMap<String, byte[]> scriptByteMap) {
+	@Override
+	public InputStream getResourceAsStream(String resource) {
+		if (!this.resourceMap.containsKey(resource)) {
+			return super.getResourceAsStream(resource);
+		}
+		byte[] resources = this.resourceMap.get(resource);
+		return new ByteArrayInputStream(resources);
+	}
+	public ScriptClassLoader(HashMap<String, byte[]> scriptByteMap, HashMap<String, byte[]> resourceMap) {
 		this.scriptClassMap = new HashMap<>();
 		this.scriptByteMap = scriptByteMap;
 		this.classAtomicReference = new AtomicReference<>();
+		this.resourceMap = resourceMap;
 		for (Map.Entry<String, byte[]> entry : scriptByteMap.entrySet()) {
 			if (entry.getKey().endsWith(".class")) {
 				String className = entry.getKey().replace('/', '.').replaceAll(".class", "");

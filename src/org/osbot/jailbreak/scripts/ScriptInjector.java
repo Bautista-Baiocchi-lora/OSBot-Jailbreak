@@ -75,7 +75,7 @@ public class ScriptInjector {
 					resourceMap.put(nextEntry.getName(), byteArrayOutputStream.toByteArray());
 				}
 			}
-			return newScript(new ScriptClassLoader(classMap).classAtomicReference.get());
+			return newScript(new ScriptClassLoader(classMap, resourceMap).classAtomicReference.get());
 		} catch (Exception e) {
 			Logger.logException("Script injection error!");
 		}
