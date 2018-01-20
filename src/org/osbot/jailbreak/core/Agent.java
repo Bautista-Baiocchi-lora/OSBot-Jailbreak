@@ -82,6 +82,7 @@ public class Agent {
 	public static Object getBotAppInstance() {
 		return reflectionEngine.getFieldValue(HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getClassName(), HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getTarget());
 	}
+
 	public static String getHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String s = "";
 		final String main = System.getenv("PROCESSOR_IDENTIFIER") + System.getenv("COMPUTERNAME") + System.getProperty("user.name").trim();
@@ -98,6 +99,7 @@ public class Agent {
 		}
 		return s;
 	}
+
 	/**
 	 * @Class BotApplication
 	 * @Method Account OSBOT account details
@@ -107,6 +109,7 @@ public class Agent {
 		Hook hook = HookManager.getHook(HookManager.Key.ACCOUNT_INSTACE);
 		return getAccountValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), getBotAppInstance());
 	}
+
 	/**
 	 * @Class BotApplication
 	 * @Method Account OSBOT account details

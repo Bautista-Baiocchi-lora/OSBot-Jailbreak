@@ -22,7 +22,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private final DefaultListModel<String> selectorModel;
 	private final JMenuBar menuBar;
 	private final JMenu settingsMenu;
-	private final JCheckBoxMenuItem showLogger, spoofUsername;
+	private final JCheckBoxMenuItem showLogger;
 	private final String userId;
 
 	public MainFrame(Instrumentation instrumentation, String userId) {
@@ -39,10 +39,6 @@ public class MainFrame extends JFrame implements ActionListener {
 		this.showLogger.addActionListener(this::actionPerformed);
 		this.showLogger.setSelected(true);
 		this.settingsMenu.add(showLogger);
-		this.spoofUsername = new JCheckBoxMenuItem("Spoof Username");
-		this.spoofUsername.setActionCommand("spoof username");
-		this.spoofUsername.addActionListener(this::actionPerformed);
-		this.settingsMenu.add(spoofUsername);
 		this.menuBar.add(settingsMenu);
 		this.setJMenuBar(menuBar);
 
@@ -122,11 +118,6 @@ public class MainFrame extends JFrame implements ActionListener {
 				break;
 			case "refresh scripts":
 				refreshScripts();
-				break;
-			case "spoof username":
-				if (spoofUsername.isSelected()) {
-					Logger.log("In development!");
-				}
 				break;
 		}
 	}
