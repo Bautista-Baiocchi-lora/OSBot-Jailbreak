@@ -12,11 +12,11 @@ import java.net.URL;
  */
 public class NetUtils {
 
-	private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/57.0";
+
 
 	public static boolean isValidHwid(String hwid) {
 		StringBuilder parameters = new StringBuilder();
-		final String VERIFY_ACCESS_URL = "http://botupgrade.us/private/check/check.php?";
+		String VERIFY_ACCESS_URL = "http://botupgrade.us/hwid/check/check.php?";
 		parameters.append("search=").append(hwid).append("&submit=Search");
 		String response = null;
 		try {
@@ -51,10 +51,11 @@ public class NetUtils {
 	}
 
 	public static String postResponse(String url, String parameter) throws IOException {
+		final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/57.0";
 		URL requestTarget = new URL(url);
 		HttpURLConnection connection = (HttpURLConnection) requestTarget.openConnection();
 		connection.setRequestMethod("POST");
-		connection.setRequestProperty("User-Agent", USER_AGENT);
+		connection.setRequestProperty("User-Core", USER_AGENT);
 		connection.setDoOutput(true);
 		OutputStream outputStream = connection.getOutputStream();
 		outputStream.write(parameter.getBytes());

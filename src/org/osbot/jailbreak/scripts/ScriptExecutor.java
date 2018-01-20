@@ -1,6 +1,6 @@
 package org.osbot.jailbreak.scripts;
 
-import org.osbot.jailbreak.core.Agent;
+import org.osbot.jailbreak.core.Core;
 import org.osbot.jailbreak.hooks.Hook;
 import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
@@ -29,8 +29,8 @@ public class ScriptExecutor {
 	 */
 	public Object getPreferencesClassInstance() {
 		Hook hook = HookManager.getHook(HookManager.Key.PREFERENCE_CLASS_INSTANCE);
-		return Agent.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(),
-				hook.getParameterCount(), hook.getReturType(), Agent.getBotAppInstance());
+		return Core.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(),
+				hook.getParameterCount(), hook.getReturType(), Core.getBotAppInstance());
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class ScriptExecutor {
 	 */
 	public Object getBottingPreferences() {
 		Hook hook = HookManager.getHook(HookManager.Key.BOT_PREFERENCES);
-		return Agent.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), getPreferencesClassInstance());
+		return Core.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), getPreferencesClassInstance());
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class ScriptExecutor {
 	public void startScript(Object bot, Object randoms, String scriptName) {
 		try {
 			Hook hook = HookManager.getHook(HookManager.Key.START_SCRIPT);
-			final ReflectedClass clazz = Agent.getReflectionEngine().getClass(hook.getClassName());
+			final ReflectedClass clazz = Core.getReflectionEngine().getClass(hook.getClassName());
 			for (ReflectedMethod m : clazz.getMethods()) {
 				if (m.getName().equals(hook.getTarget())) {
 					if (m.getParameterCount() == hook.getParameterCount()) {
@@ -72,7 +72,7 @@ public class ScriptExecutor {
 	 */
 	public Object getBot() {
 		Hook hook = HookManager.getHook(HookManager.Key.BOT_INSTANCE);
-		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), Agent.getBotAppInstance());
+		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), Core.getBotAppInstance());
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class ScriptExecutor {
 	 */
 	public Object getBotValue(String className, String fieldName, int paramCount, String returnType, Object instance) {
 		try {
-			final ReflectedClass clazz = Agent.getReflectionEngine().getClass(className, instance);
+			final ReflectedClass clazz = Core.getReflectionEngine().getClass(className, instance);
 			for (ReflectedMethod m : clazz.getMethods()) {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {

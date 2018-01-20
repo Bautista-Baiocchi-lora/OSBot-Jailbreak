@@ -23,7 +23,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by Ethan & Bautsita on 1/14/2018.
  */
-public class Agent {
+public class Core {
 
 	private static ReflectionEngine reflectionEngine;
 
@@ -114,7 +114,7 @@ public class Agent {
 	 */
 	public static Object getAccountValue(String className, String fieldName, int paramCount, String returnType, Object instance) {
 		try {
-			final ReflectedClass clazz = Agent.getReflectionEngine().getClass(className, instance);
+			final ReflectedClass clazz = Core.getReflectionEngine().getClass(className, instance);
 			for (ReflectedMethod m : clazz.getMethods()) {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {
