@@ -13,6 +13,7 @@ public class HookManager {
 
 	private final void loadHooks() {
 		hooks.put(Key.BOT_INSTANCE, new Hook.Builder("org.osbot.BotApplication").target("iiIIiiiIiIii").parameterCount(0).returnType("public class org.osbot.rs07.Bot").build());
+		hooks.put(Key.ACCOUNT_INSTACE, new Hook.Builder("org.osbot.BotApplication").target("iiIIiiiIiIii").parameterCount(0).returnType("public class org.osbot.UA").build());
 		hooks.put(Key.START_SCRIPT, new Hook.Builder("org.osbot.Gb").target("iiIIiiiIiIii").parameterCount(4).build());
 		hooks.put(Key.BOT_APP_INSTANCE, new Hook.Builder("org.osbot.BotApplication").target("iiiiiiiiIiii").build());
 		hooks.put(Key.PREFERENCE_CLASS_INSTANCE, new Hook.Builder("org.osbot.BotApplication").target("iiIIiiiIiIii").returnType("public class org.osbot.Kc").parameterCount(0).build());
@@ -20,7 +21,9 @@ public class HookManager {
 		hooks.put(Key.SDN_SCRIPT, new Hook.Builder("org.osbot.SA").build());
 		hooks.put(Key.SCRIPT_MAP, new Hook.Builder("org.osbot.LPT8").target("iIIIiiiIiiII").build());
 		hooks.put(Key.SCRIPT_MANIFEST, new Hook.Builder("org.osbot.rs07.script.ScriptManifest").build());
-		hooks.put(Key.VIP, new Hook.Builder("org.osbot.BotApplication").target("IIiIiiiiIiiI").build());
+		hooks.put(Key.VIP, new Hook.Builder("org.osbot.UA").target("iIIIiiiiIIii").build());
+		hooks.put(Key.DEV, new Hook.Builder("org.osbot.UA").target("IIIIIiiiIIii").build());
+		hooks.put(Key.NAME, new Hook.Builder("org.osbot.UA").target("IIiiiiiIIIii").build());
 	}
 
 	public static Hook getHook(Key key) {
@@ -30,7 +33,7 @@ public class HookManager {
 	public static enum Key {
 		BOT_INSTANCE("Bot instance"), START_SCRIPT("Start script"), BOT_APP_INSTANCE("Bot app instance"),
 		PREFERENCE_CLASS_INSTANCE("Preference class instance"), BOT_PREFERENCES("Bot preferences"),
-		SDN_SCRIPT("SDN script"), SCRIPT_MAP("Script map"), SCRIPT_MANIFEST("Script manifest"), VIP("Vip");
+		SDN_SCRIPT("SDN script"), SCRIPT_MAP("Script map"), SCRIPT_MANIFEST("Script manifest"), ACCOUNT_INSTACE("Account instance"), VIP("Vip"), DEV("Dev"), NAME("Name");
 
 		private final String name;
 
