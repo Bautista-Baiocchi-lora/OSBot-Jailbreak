@@ -1,6 +1,6 @@
 package org.osbot.jailbreak.scripts;
 
-import org.osbot.jailbreak.core.Agent;
+import org.osbot.jailbreak.core.Core;
 import org.osbot.jailbreak.hooks.Hook;
 import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
@@ -43,7 +43,7 @@ public class ScriptInjector {
 	private void addToTreeMap() {
 		SDNClassMap.put(scriptName, getSDNScript(scriptLink));
 		Hook hook = HookManager.getHook(HookManager.Key.SCRIPT_MAP);
-		Agent.getReflectionEngine().setFieldValue(hook.getClassName(), hook.getTarget(), SDNClassMap);
+		Core.getReflectionEngine().setFieldValue(hook.getClassName(), hook.getTarget(), SDNClassMap);
 	}
 
 	/**
