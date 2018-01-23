@@ -1,19 +1,22 @@
 package org.osbot.jailbreak.hooks;
 
+import org.json.simple.JSONObject;
+import org.osbot.jailbreak.ui.logger.Logger;
+
 public class Hook {
 
-	private final String className, target, returType;
+	private final String className, target, returnType;
 	private final int parameterCount;
 
 	private Hook(Builder builder) {
 		this.className = builder.className;
 		this.target = builder.target;
 		this.parameterCount = builder.parameterCount;
-		this.returType = builder.returnType;
+		this.returnType = builder.returnType;
 	}
 
-	public String getReturType() {
-		return returType;
+	public String returnType() {
+		return returnType;
 	}
 
 	public String getClassName() {
@@ -26,6 +29,27 @@ public class Hook {
 
 	public int getParameterCount() {
 		return parameterCount;
+	}
+
+	public static Hook wrap(JSONObject object) {
+		Builder builder = new Builder((String) object.get("class"));
+		builder.target((String) object.getOrDefault("target", null));
+		builder.parameterCount(((Long) object.getOrDefault("parameter count", 0)).intValue());
+		builder.returnType((String) object.getOrDefault("return type", null));
+		return new Hook(builder);
+	}
+
+	public JSONObject toJson() {
+		JSONObject object = new JSONObject();
+		object.put("class", className);
+		object.put("parameter count", parameterCount);
+		if (target != null) {
+			object.put("target", target);
+		}
+		if (returnType != null) {
+			object.put("return type", returnType);
+		}
+		return object;
 	}
 
 	public static class Builder {

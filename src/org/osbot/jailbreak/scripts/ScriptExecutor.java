@@ -30,7 +30,7 @@ public class ScriptExecutor {
 	public Object getPreferencesClassInstance() {
 		Hook hook = HookManager.getHook(HookManager.Key.PREFERENCE_CLASS_INSTANCE);
 		return Core.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(),
-				hook.getParameterCount(), hook.getReturType(), Core.getBotAppInstance());
+				hook.getParameterCount(), hook.returnType(), Core.getBotAppInstance());
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class ScriptExecutor {
 	 */
 	public Object getBottingPreferences() {
 		Hook hook = HookManager.getHook(HookManager.Key.BOT_PREFERENCES);
-		return Core.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), getPreferencesClassInstance());
+		return Core.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), getPreferencesClassInstance());
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class ScriptExecutor {
 	 */
 	public Object getBot() {
 		Hook hook = HookManager.getHook(HookManager.Key.BOT_INSTANCE);
-		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), Core.getBotAppInstance());
+		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), Core.getBotAppInstance());
 	}
 
 	/**

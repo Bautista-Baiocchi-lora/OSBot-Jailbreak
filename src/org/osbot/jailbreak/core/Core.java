@@ -36,7 +36,7 @@ public class Core {
 		new MainFrame(instrumentation, args.split(":")[0]);
 		try {
 			Logger.log("Double checking permission...");
-			if (getHWID().equalsIgnoreCase(args.split(":")[1])) {
+			if (args.split(":")[2].equals("HtEk6jyT6kAgpHc6VbRbj") && getHWID().equalsIgnoreCase(args.split(":")[1])) {
 				if (NetUtils.isValidHwid(args.split(":")[1])) {
 					if (NetUtils.isVIP(args.split(":")[0])) {
 						Logger.log("Access granted, Happy botting!");
@@ -107,7 +107,7 @@ public class Core {
 	 */
 	public static Object getAccount() {
 		Hook hook = HookManager.getHook(HookManager.Key.ACCOUNT_INSTACE);
-		return getAccountValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.getReturType(), getBotAppInstance());
+		return getAccountValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), getBotAppInstance());
 	}
 
 	/**

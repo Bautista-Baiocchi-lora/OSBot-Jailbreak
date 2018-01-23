@@ -1,5 +1,10 @@
 package org.osbot.jailbreak.hooks;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.osbot.jailbreak.util.NetUtils;
+
 import java.util.HashMap;
 
 public class HookManager {
@@ -11,21 +16,28 @@ public class HookManager {
 		loadHooks();
 	}
 
-	private final void loadHooks() {
-		hooks.put(Key.BOT_INSTANCE, new Hook.Builder("org.osbot.BotApplication").target("iiIIiiiIiIii").parameterCount(0).returnType("public class org.osbot.rs07.Bot").build());
-		hooks.put(Key.ACCOUNT_INSTACE, new Hook.Builder("org.osbot.BotApplication").target("iiIIiiiIiIii").parameterCount(0).returnType("public class org.osbot.UA").build());
-		hooks.put(Key.START_SCRIPT, new Hook.Builder("org.osbot.Gb").target("iiIIiiiIiIii").parameterCount(4).build());
-		hooks.put(Key.BOT_APP_INSTANCE, new Hook.Builder("org.osbot.BotApplication").target("iiiiiiiiIiii").build());
-		hooks.put(Key.PREFERENCE_CLASS_INSTANCE, new Hook.Builder("org.osbot.BotApplication").target("iiIIiiiIiIii").returnType("public class org.osbot.Kc").parameterCount(0).build());
-		hooks.put(Key.BOT_PREFERENCES, new Hook.Builder("org.osbot.Kc").target("iiIIiiiIiIii").parameterCount(1).returnType("public class org.osbot.ad").build());
-		hooks.put(Key.SDN_SCRIPT, new Hook.Builder("org.osbot.SA").build());
-		hooks.put(Key.SCRIPT_MAP, new Hook.Builder("org.osbot.LPT8").target("iIIIiiiIiiII").build());
-		hooks.put(Key.SCRIPT_MANIFEST, new Hook.Builder("org.osbot.rs07.script.ScriptManifest").build());
-		hooks.put(Key.VIP, new Hook.Builder("org.osbot.UA").target("iIIIiiiiIIii").build());
-		hooks.put(Key.DEV, new Hook.Builder("org.osbot.UA").target("IIIIIiiiIIii").build());
-		hooks.put(Key.NAME, new Hook.Builder("org.osbot.UA").target("IIiiiiiIIIii").build());
-		hooks.put(Key.ACCOUNT_KEY, new Hook.Builder("org.osbot.UA").target("IiiIiiiIiIIi").build());
-		hooks.put(Key.PASSWORD, new Hook.Builder("org.osbot.UA").target("IIiIiiiiIiiI").build());
+	private void loadHooks() {
+		JSONArray hookArray = null;
+		try {
+			JSONParser parser = new JSONParser();
+			hookArray = (JSONArray) parser.parse(NetUtils.getResponse("http://botupgrade.us/private/hooks/osbot_hooks.txt"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (hookArray != null) {
+			outter:
+			for (Object arrayObject : hookArray) {
+				JSONObject jsonObject = (JSONObject) arrayObject;
+				Hook hook = Hook.wrap(jsonObject);
+				String hookKey = (String) jsonObject.get("Key");
+				for (Key key : Key.values()) {
+					if (key.getName().equalsIgnoreCase(hookKey)) {
+						hooks.put(key, hook);
+						continue outter;
+					}
+				}
+			}
+		}
 	}
 
 	public static Hook getHook(Key key) {
