@@ -7,21 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="487d7904-ae03-4e5a-b726-fa40bc857a2c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Jailbroken_OSBot_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Jailbroken_OSBot_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Jailbroken-OSBot.iml" afterPath="$PROJECT_DIR$/Jailbroken-OSBot.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/core/Core.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/core/Core.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook$Builder.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook$Builder.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager$Key.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager$Key.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptExecutor.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptExecutor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/NetUtils.class" afterPath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/NetUtils.class" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/core/Core.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/core/Core.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/core/Core.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook$Builder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/Hook.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager$Key.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptClassLoader.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptExecutor.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptInjector.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/MainFrame.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/Logger.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/LoggerFlag.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/ui/logger/LoggerPanel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/NetUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers$Condition.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers$ModifierBuilder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/Modifiers.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedClass$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedClass.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedConstructor.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedField.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectedMethod.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectionEngine.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/Hook.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/Hook.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/HookManager.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/HookManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptExecutor.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/scripts/ScriptExecutor.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/osbot/jailbreak/util/NetUtils.java" afterPath="$PROJECT_DIR$/src/org/osbot/jailbreak/util/NetUtils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +44,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NetUtils.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NetUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/util/NetUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+            <state relative-caret-position="525">
+              <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HookManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/HookManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hook.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/Hook.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Core.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/core/Core.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -111,12 +152,12 @@
         <option value="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/core/Core.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/util/NetUtils.java" />
-        <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/Hook.java" />
         <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/HookManager.java" />
+        <option value="$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/Hook.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -138,9 +179,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,7 +232,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,11 +575,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516563687122</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="current hook system">
+      <created>1516748342234</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1516748342234</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -588,7 +636,8 @@
     <MESSAGE value="UI fix" />
     <MESSAGE value="Remove useless logs" />
     <MESSAGE value="Ready to release" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready to release" />
+    <MESSAGE value="current hook system" />
+    <option name="LAST_COMMIT_MESSAGE" value="current hook system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -736,9 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="50" lean-forward="false" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -758,46 +804,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/core/Core.java">
+    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/HookManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
-          <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
+        <state relative-caret-position="522">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/util/NetUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/Hook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="68" lean-forward="false" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#615#616#0" expanded="false" />
-            <element signature="e#643#644#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/hooks/HookManager.java">
+    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/core/Core.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1068#1069#0" expanded="false" />
-            <element signature="e#1096#1097#0" expanded="false" />
-            <element signature="e#1586#1587#0" expanded="false" />
-            <element signature="e#1611#1612#0" expanded="false" />
-            <element signature="e#1640#1641#0" expanded="false" />
-            <element signature="e#1660#1661#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/osbot/jailbreak/util/NetUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+        <state relative-caret-position="345">
+          <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
           <folding />
         </state>
       </provider>

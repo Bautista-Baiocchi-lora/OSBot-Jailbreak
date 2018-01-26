@@ -1,7 +1,6 @@
 package org.osbot.jailbreak.hooks;
 
 import org.json.simple.JSONObject;
-import org.osbot.jailbreak.ui.logger.Logger;
 
 public class Hook {
 
@@ -37,19 +36,6 @@ public class Hook {
 		builder.parameterCount(((Long) object.getOrDefault("parameter count", 0)).intValue());
 		builder.returnType((String) object.getOrDefault("return type", null));
 		return new Hook(builder);
-	}
-
-	public JSONObject toJson() {
-		JSONObject object = new JSONObject();
-		object.put("class", className);
-		object.put("parameter count", parameterCount);
-		if (target != null) {
-			object.put("target", target);
-		}
-		if (returnType != null) {
-			object.put("return type", returnType);
-		}
-		return object;
 	}
 
 	public static class Builder {
