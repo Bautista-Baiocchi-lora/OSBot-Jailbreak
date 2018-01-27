@@ -1,5 +1,7 @@
 package org.osbot.jailbreak.util.reflection;
 
+import org.osbot.jailbreak.ui.logger.Logger;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -103,6 +105,7 @@ public class ReflectionEngine {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {
 						if (m.getReturnType().toGenericString().equals(returnType)) {
+							Logger.log("Invoking");
 							return m.invoke();
 						}
 

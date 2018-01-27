@@ -40,6 +40,7 @@ public class ScriptClassLoader extends ClassLoader {
 					if ((loadClass = this.loadClass(className)) == null || loadClass.getAnnotation(scriptManifestClass()) == null) {
 						continue;
 					}
+					Logger.log(loadClass.getName());
 					classAtomicReference.set(loadClass);
 				} catch (Throwable t) {
 					Logger.logException("Error in script classloader");

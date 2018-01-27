@@ -66,13 +66,13 @@ public class Core {
 		}
 		Logger.log("Granting VIP permissions.");
 		Hook vipHook = HookManager.getHook(HookManager.Key.VIP);
-		reflectionEngine.setFieldValue(vipHook.getClassName(), vipHook.getTarget(), true, getAccount());
+		//reflectionEngine.setFieldValue(vipHook.getClassName(), vipHook.getTarget(), true, getAccount());
 		Hook devHook = HookManager.getHook(HookManager.Key.DEV);
-		reflectionEngine.setFieldValue(devHook.getClassName(), devHook.getTarget(), true, getAccount());
+		//reflectionEngine.setFieldValue(devHook.getClassName(), devHook.getTarget(), true, getAccount());
 		Logger.log("VIP permissions granted.");
 		Logger.log("Spoofing OSBot Username");
 		Hook name = HookManager.getHook(HookManager.Key.NAME);
-		reflectionEngine.setFieldValue(name.getClassName(), name.getTarget(), "Alek", getAccount());
+		//reflectionEngine.setFieldValue(name.getClassName(), name.getTarget(), "Alek", getAccount());
 	}
 
 	public static ReflectionEngine getReflectionEngine() {

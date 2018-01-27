@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.jar.JarInputStream;
 import java.util.zip.ZipEntry;
@@ -18,7 +19,7 @@ import java.util.zip.ZipEntry;
  * Created by Ethan on 1/17/2018.
  */
 public class ScriptInjector {
-	private TreeMap<String, Object> SDNClassMap = new TreeMap<>();
+	private Map<String, Object> SDNClassMap = new HashMap<>();
 	private String scriptLink;
 	private String scriptName;
 
@@ -41,9 +42,13 @@ public class ScriptInjector {
 	 * @Usage This TreeMap holds our SDN Script while it awaits being started.
 	 */
 	private void addToTreeMap() {
-		SDNClassMap.put(scriptName, getSDNScript(scriptLink));
-		Hook hook = HookManager.getHook(HookManager.Key.SCRIPT_MAP);
-		Core.getReflectionEngine().setFieldValue(hook.getClassName(), hook.getTarget(), SDNClassMap);
+		try {
+			SDNClassMap.put(scriptName, getSDNScript(scriptLink));
+			Hook hook = HookManager.getHook(HookManager.Key.SCRIPT_MAP);
+			Core.getReflectionEngine().setFieldValue(hook.getClassName(), hook.getTarget(), SDNClassMap);
+		} catch (Exception e) {
+			Logger.log(e.getLocalizedMessage());
+		}
 	}
 
 	/**

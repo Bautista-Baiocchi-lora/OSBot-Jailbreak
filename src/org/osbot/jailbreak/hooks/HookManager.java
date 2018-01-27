@@ -44,11 +44,12 @@ public class HookManager {
 		return hooks.get(key);
 	}
 
-	public static enum Key {
+	public enum Key {
 		BOT_INSTANCE("Bot instance"), START_SCRIPT("Start script"), BOT_APP_INSTANCE("Bot app instance"),
 		PREFERENCE_CLASS_INSTANCE("Preference class instance"), BOT_PREFERENCES("Bot preferences"),
 		SDN_SCRIPT("SDN script"), SCRIPT_MAP("Script map"), SCRIPT_MANIFEST("Script manifest"), ACCOUNT_INSTACE("Account instance"),
-		VIP("Vip"), DEV("Dev"), NAME("Name"), ACCOUNT_KEY("Account Key"), PASSWORD("Password");
+		VIP("Vip"), DEV("Dev"), NAME("Name"), ACCOUNT_KEY("Account Key"), BOT_CLASS_INSTANCE("Bot class instance"),
+		PREFERENCE_HOLDER_CLASS("Preference holder class");
 
 		private final String name;
 

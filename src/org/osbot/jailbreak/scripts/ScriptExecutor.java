@@ -5,6 +5,7 @@ import org.osbot.jailbreak.hooks.Hook;
 import org.osbot.jailbreak.hooks.HookManager;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.util.reflection.ReflectedClass;
+import org.osbot.jailbreak.util.reflection.ReflectedField;
 import org.osbot.jailbreak.util.reflection.ReflectedMethod;
 
 import java.lang.reflect.InvocationTargetException;
@@ -29,6 +30,12 @@ public class ScriptExecutor {
 	 */
 	public Object getPreferencesClassInstance() {
 		Hook hook = HookManager.getHook(HookManager.Key.PREFERENCE_CLASS_INSTANCE);
+		return getPreferenceValue(hook.getClassName(), hook.getTarget(),
+				hook.getParameterCount(), hook.returnType(), getPreferenceHolderClassInstance(), "");
+	}
+
+	public Object getPreferenceHolderClassInstance() {
+		Hook hook = HookManager.getHook(HookManager.Key.PREFERENCE_HOLDER_CLASS);
 		return Core.getReflectionEngine().getMethodValue(hook.getClassName(), hook.getTarget(),
 				hook.getParameterCount(), hook.returnType(), Core.getBotAppInstance());
 	}
@@ -56,12 +63,12 @@ public class ScriptExecutor {
 				if (m.getName().equals(hook.getTarget())) {
 					if (m.getParameterCount() == hook.getParameterCount()) {
 						Logger.log("Starting script...");
-						m.invoke(bot, randoms, scriptName, null);
+						m.invoke(291, bot, randoms, scriptName, null);
 					}
 				}
 			}
 		} catch (IllegalAccessException | InvocationTargetException e) {
-			e.printStackTrace();
+			Logger.log(e.getLocalizedMessage());
 		}
 	}
 
@@ -70,11 +77,16 @@ public class ScriptExecutor {
 	 * @Method Bot currentBot
 	 * @Usage The instance for the current bot's tab.
 	 */
+
 	public Object getBot() {
 		Hook hook = HookManager.getHook(HookManager.Key.BOT_INSTANCE);
-		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), Core.getBotAppInstance());
+		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), getBotClassInstance());
 	}
 
+	public Object getBotClassInstance() {
+		Hook hook = HookManager.getHook(HookManager.Key.BOT_CLASS_INSTANCE);
+		return getBotValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), Core.getBotAppInstance());
+	}
 	/**
 	 * @Class BotApplication
 	 * @Method Bot currentBot
@@ -86,8 +98,7 @@ public class ScriptExecutor {
 			for (ReflectedMethod m : clazz.getMethods()) {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {
-						if (m.getReturnType().toGenericString().equals(returnType)) {
-							Logger.log("Mapping client...");
+							if (m.getReturnType().toGenericString().equals(returnType)) {
 							return m.invoke();
 						}
 
@@ -95,7 +106,26 @@ public class ScriptExecutor {
 				}
 			}
 		} catch (IllegalAccessException | InvocationTargetException e) {
-			e.printStackTrace();
+			Logger.log(e.getLocalizedMessage());
+		}
+		return null;
+	}
+
+	public Object getPreferenceValue(String className, String fieldName, int paramCount, String returnType, Object instance, Object... params) {
+		try {
+			final ReflectedClass clazz = Core.getReflectionEngine().getClass(className, instance);
+			for (ReflectedMethod m : clazz.getMethods()) {
+				if (m.getName().equals(fieldName)) {
+					if (m.getParameterCount() == paramCount) {
+						if (m.getReturnType().toGenericString().equals(returnType)) {
+							return m.invoke(params);
+						}
+
+					}
+				}
+			}
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			Logger.log(e.getLocalizedMessage());
 		}
 		return null;
 	}
