@@ -27,6 +27,7 @@ public class ScriptClassLoader extends ClassLoader {
 		byte[] resources = this.resourceMap.get(resource);
 		return new ByteArrayInputStream(resources);
 	}
+
 	public ScriptClassLoader(HashMap<String, byte[]> scriptByteMap, HashMap<String, byte[]> resourceMap) {
 		this.scriptClassMap = new HashMap<>();
 		this.scriptByteMap = scriptByteMap;

@@ -3,18 +3,17 @@ package org.osbot.jailbreak.core;
 
 import org.osbot.jailbreak.hooks.Hook;
 import org.osbot.jailbreak.hooks.HookManager;
+import org.osbot.jailbreak.scripts.AccountManipulator;
+import org.osbot.jailbreak.scripts.Bot;
 import org.osbot.jailbreak.ui.MainFrame;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.util.NetUtils;
-import org.osbot.jailbreak.util.reflection.ReflectedClass;
-import org.osbot.jailbreak.util.reflection.ReflectedMethod;
 import org.osbot.jailbreak.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.instrument.Instrumentation;
-import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -24,7 +23,8 @@ import java.security.NoSuchAlgorithmException;
  * Created by Ethan & Bautsita on 1/14/2018.
  */
 public class Core {
-		//this is for a test commit ok
+
+	private static Bot bot;
 	private static ReflectionEngine reflectionEngine;
 
 	public static void agentmain(String args, Instrumentation instrumentation) {
@@ -64,6 +64,7 @@ public class Core {
 		} catch (IOException io) {
 			Logger.logException("Jailbreak failed to inject!");
 		}
+		bot = new Bot();
 		Logger.log("Granting VIP permissions.");
 		Hook vipHook = HookManager.getHook(HookManager.Key.VIP);
 		//reflectionEngine.setFieldValue(vipHook.getClassName(), vipHook.getTarget(), true, getAccount());
@@ -72,15 +73,15 @@ public class Core {
 		Logger.log("VIP permissions granted.");
 		Logger.log("Spoofing OSBot Username");
 		Hook name = HookManager.getHook(HookManager.Key.NAME);
-		//reflectionEngine.setFieldValue(name.getClassName(), name.getTarget(), "Alek", getAccount());
+		reflectionEngine.setFieldValue(name.getClassName(), name.getTarget(), "Alek", AccountManipulator.getAccount());
 	}
 
 	public static ReflectionEngine getReflectionEngine() {
 		return reflectionEngine;
 	}
 
-	public static Object getBotAppInstance() {
-		return reflectionEngine.getFieldValue(HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getClassName(), HookManager.getHook(HookManager.Key.BOT_APP_INSTANCE).getTarget());
+	public static Bot getBot() {
+		return bot;
 	}
 
 	public static String getHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
@@ -98,40 +99,6 @@ public class Core {
 			i++;
 		}
 		return s;
-	}
-
-	/**
-	 * @Class BotApplication
-	 * @Method Account OSBOT account details
-	 * @Usage The details for OS-Bot account
-	 */
-	public static Object getAccount() {
-		Hook hook = HookManager.getHook(HookManager.Key.ACCOUNT_INSTACE);
-		return getAccountValue(hook.getClassName(), hook.getTarget(), hook.getParameterCount(), hook.returnType(), getBotAppInstance());
-	}
-
-	/**
-	 * @Class BotApplication
-	 * @Method Account OSBOT account details
-	 * @Usage The details for OS-Bot account
-	 */
-	public static Object getAccountValue(String className, String fieldName, int paramCount, String returnType, Object instance) {
-		try {
-			final ReflectedClass clazz = Core.getReflectionEngine().getClass(className, instance);
-			for (ReflectedMethod m : clazz.getMethods()) {
-				if (m.getName().equals(fieldName)) {
-					if (m.getParameterCount() == paramCount) {
-						if (m.getReturnType().toGenericString().equals(returnType)) {
-							return m.invoke();
-						}
-
-					}
-				}
-			}
-		} catch (IllegalAccessException | InvocationTargetException e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 }
