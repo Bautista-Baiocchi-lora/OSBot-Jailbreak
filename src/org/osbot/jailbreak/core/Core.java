@@ -8,12 +8,14 @@ import org.osbot.jailbreak.scripts.Bot;
 import org.osbot.jailbreak.ui.MainFrame;
 import org.osbot.jailbreak.ui.logger.Logger;
 import org.osbot.jailbreak.util.NetUtils;
+import org.osbot.jailbreak.util.WebsiteAuthenticator;
 import org.osbot.jailbreak.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.instrument.Instrumentation;
+import java.net.Authenticator;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -28,6 +30,7 @@ public class Core {
 	private static ReflectionEngine reflectionEngine;
 
 	public static void agentmain(String args, Instrumentation instrumentation) {
+		Authenticator.setDefault(new WebsiteAuthenticator("C8VhFM9mRbBm8", "mEYshRY94KYT9"));
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (IllegalAccessException | ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException e) {
