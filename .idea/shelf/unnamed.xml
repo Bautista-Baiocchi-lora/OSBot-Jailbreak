@@ -1,0 +1,29 @@
+<changelist name="unnamed" date="1517294600874" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/shelved.patch" />
+  <option name="DESCRIPTION" value="" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/core/Core.class" />
+    <option name="AFTER_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/core/Core.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/Core.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptExecutor.class" />
+    <option name="AFTER_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptExecutor.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/ScriptExecutor.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptClassLoader.class" />
+    <option name="AFTER_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/scripts/ScriptClassLoader.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/ScriptClassLoader.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager$Key.class" />
+    <option name="AFTER_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/hooks/HookManager$Key.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/HookManager$Key.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectionEngine.class" />
+    <option name="AFTER_PATH" value="out/production/Jailbroken-OSBot/org/osbot/jailbreak/util/reflection/ReflectionEngine.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/ReflectionEngine.class" />
+  </binary>
+</changelist>
