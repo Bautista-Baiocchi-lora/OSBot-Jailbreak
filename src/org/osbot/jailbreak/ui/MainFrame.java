@@ -26,7 +26,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private final String userId;
 
     public MainFrame(Instrumentation instrumentation, String userId) {
-        super("OSBot Jailbreak - BotUpgrade.us");
+	    super("OSBot Jailbreak - DiscountBotting");
         this.instrumentation = instrumentation;
         this.userId = userId;
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
