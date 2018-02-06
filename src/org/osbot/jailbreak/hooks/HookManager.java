@@ -24,7 +24,7 @@ public class HookManager {
         JSONArray hookArray = null;
         try {
             JSONParser parser = new JSONParser();
-            hookArray = (JSONArray) parser.parse(NetUtils.getResponse("http://botupgrade.us/private/hooks/osbot_hooks162.txt"));
+            hookArray = (JSONArray) parser.parse(NetUtils.getResponse("http://discountbotting.com/private/hooks/osbot_hooks162.txt"));
         } catch (Exception e) {
             e.printStackTrace();
         }

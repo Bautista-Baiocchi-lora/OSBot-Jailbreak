@@ -22,7 +22,7 @@ public class NetUtils {
 
     public static boolean isValidHwid(String hwid) {
         StringBuilder parameters = new StringBuilder();
-        String VERIFY_ACCESS_URL = "http://botupgrade.us/hwid/check/check.php?";
+        String VERIFY_ACCESS_URL = "http://discountbotting.com/hwid/check/check.php?";
         parameters.append("search=").append(hwid).append("&submit=Search");
         String response = null;
         try {
@@ -39,7 +39,7 @@ public class NetUtils {
     }
 
     public static boolean isVIP(String id) {
-        final String VERIFY_VIP_URL = "http://botupgrade.us/private/check/paid.php?";
+        final String VERIFY_VIP_URL = "http://discountbotting.com/private/check/paid.php?";
         StringBuilder parameters = new StringBuilder();
         parameters.append("uid=").append(id).append("&submit=Search");
         String response = null;

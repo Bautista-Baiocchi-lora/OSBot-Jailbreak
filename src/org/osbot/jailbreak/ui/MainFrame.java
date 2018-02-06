@@ -26,7 +26,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private final String userId;
 
     public MainFrame(Instrumentation instrumentation, String userId) {
-        super("OSBot Jailbreak - BotUpgrade.us");
+        super("OSBot Jailbreak - DiscountBotting");
         this.instrumentation = instrumentation;
         this.userId = userId;
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,7 +70,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 
     private final void refreshScripts() {
-        final String SCRIPTS_REPO_URL = "http://botupgrade.us/private/check/scripts.php?";
+        final String SCRIPTS_REPO_URL = "http://discountbotting.com/private/check/scripts.php?";
         final StringBuilder parameters = new StringBuilder();
         parameters.append("uid=").append(userId).append("&submit=Search");
         String response = null;
@@ -98,14 +98,14 @@ public class MainFrame extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "start script":
                 if (!scriptSelector.isSelectionEmpty()) {
-                    final String BASE_DOWNLOAD_URL = "http://botupgrade.us/private/scripts/current/";
+                    final String BASE_DOWNLOAD_URL = "http://discountbotting.com/private/scripts/current/";
                     StringBuilder scriptUrl = new StringBuilder();
                     String scriptName = selectorModel.getElementAt(scriptSelector.getSelectedIndex());
                     scriptUrl.append(BASE_DOWNLOAD_URL).append(scriptName.replace(" ", "_"));
                     scriptUrl.append(".jar");
                     Logger.log("Downloading Script...");
                     new ScriptDownloader(scriptName, scriptUrl.toString());
-                    // dispose();
+                    dispose();
                 }
                 break;
             case "show logger":
