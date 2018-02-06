@@ -39,7 +39,7 @@ public class ScriptClassLoader extends ClassLoader {
             }
         }
     }
-
+ 
     @Override
     public InputStream getResourceAsStream(String resource) {
         if (!this.resourceMap.containsKey(resource)) {
